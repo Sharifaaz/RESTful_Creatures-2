@@ -12,16 +12,14 @@ router.get('/',(req,res)=>{
    console.log(dinosaurs)
    let dinoData =JSON.parse(dinosaurs)
    let nameFilter = req.query.nameFilter
-if(nameFilter){
-    dinoData = dinoData.filter(dino=>{
+   if(nameFilter){
+   dinoData = dinoData.filter(dino=>{
         return dino.name.toLowerCase()===nameFilter.toLowerCase()
     })
 }
 
-
    console.log(nameFilter)
    console.log(req.query)
-
    res.render('dinosaurs/index', {myDino:dinoData})
   
 })
@@ -64,8 +62,6 @@ router.post('/',(req,res)=>{
 
     res.redirect('/dinosaurs')
 });
-
-
 
 
 // for the edit.ejs
